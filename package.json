@@ -13,5 +13,14 @@
   "type": "commonjs",
   "dependencies": {
     "express": "^5.2.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wendwessennathanim-ctrl/self-healing-ci-cd-pipeline-using-n8n.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wendwessennathanim-ctrl/self-healing-ci-cd-pipeline-using-n8n/issues"
+  },
+  "homepage": "https://github.com/wendwessennathanim-ctrl/self-healing-ci-cd-pipeline-using-n8n#readme"
 }
