@@ -1,26 +1,20 @@
-//const express = require('express');
-const http = require('http');
-
+const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => res.send('Hello from Express App'));
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
 
-const server = app.listen(5000, () => {
-  console.log('Server started, running smoke test...');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
 
-  http.get('http://localhost:5000/', (res) => {
-    console.log(`Status: ${res.statusCode}`);
-    if (res.statusCode === 200) {
-      console.log('Smoke test passed');
-      server.close();
-      process.exit(0);
-    } else {
-      server.close();
-      process.exit(1);
-    }
-  }).on('error', (err) => {
-    console.error('Request failed:', err.message);
-    server.close();
-    process.exit(1);
-  });
+describe('Basic Tests', () => {
+    it('should respond with Hello World!', (done) => {
+        request(app)
+            .get('/')
+            .expect('Content-Type', /text/)
+            .expect(200, 'Hello World!', done);
+    });
 });
